@@ -84,7 +84,7 @@ export default class AccountManager {
         const sessions = this.db.get("sessions");
         if (sessions.hasOwnProperty(token)) {
             const created = sessions[token].created;// Tokens expire after a month.
-            if (((new Date()).now() - created) > (1000 * 2678400)) {
+            if ((Date.now() - created) > (1000 * 2678400)) {
                 return "token expired";
             }
             return true;
@@ -103,7 +103,7 @@ export default class AccountManager {
         const token = uuidv4();
         sessions[token] = {
             username: username,
-            created: (new Date()).now(),
+            created: Date.now(),
         };
         this.db.set("sessions", sessions);
         this.db.sync();
