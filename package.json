@@ -1,0 +1,19 @@
+{
+  "name": "bb9000",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node ./server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "osenv": "^0.1.5",
+    "simple-json-db": "^2.0.0",
+    "socket.io": "^4.8.0",
+    "uuid": "^10.0.0"
+  }
+}
