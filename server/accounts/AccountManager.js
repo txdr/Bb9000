@@ -26,7 +26,7 @@ export default class AccountManager {
                 return;
             }
             const validate = this.validatePassword(params.username, params.password);
-            if (!validate) {
+            if (validate !== "success") {
                 res.status(201).send(validate);
                 return;
             }
@@ -47,7 +47,7 @@ export default class AccountManager {
         if (account.password !== password) {
             return "password incorrect";
         }
-        return true;
+        return "success";
     }
 
     getAccount(username) {
