@@ -10,7 +10,7 @@ function register() {
     const password = document.getElementById("password").value;
     console.log(`Registering ${username} ${password}`)
     fetch(`/register/${username}/${password}`).then((response) => {
-        console.log(response.text());
+        response.text().then(console.log);
     });
 }
 
