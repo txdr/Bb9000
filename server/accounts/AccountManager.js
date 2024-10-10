@@ -32,6 +32,15 @@ export default class AccountManager {
             }
             res.status(200).send(this.createSession(params.username));
         });
+        this.express.get("/verify/:token", (req, res) => {
+            const params = req.params;
+            const validate = this.validateSession(params.token);
+            if (validate !== "good") {
+                res.status(201).send(validate);
+                return;
+            }
+            res.status(200).send("token valid");
+        });
     }
 
     getExpress() {
@@ -87,7 +96,7 @@ export default class AccountManager {
             if ((Date.now() - created) > (1000 * 2678400)) {
                 return "token expired";
             }
-            return true;
+            return "good";
         }
         return "no token found";
     }
