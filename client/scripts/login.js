@@ -1,4 +1,12 @@
-const err = (text) => document.getElementById("err").innerHTML = text;
+const err = (text) => {
+    document.getElementById("err").style.color = "red";
+    document.getElementById("err").innerHTML = text;
+};
+const sucess = (text) => {
+    document.getElementById("err").style.color = "green";
+    document.getElementById("err").innerHTML = text;
+};
+
 const token = window.localStorage.getItem("token");
 if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
@@ -21,6 +29,7 @@ function register() {
             return;
         }
         response.text().then((txt) => {
+            success("You have been logged in.");
             localStorage.setItem("token", txt);
         })
     });
