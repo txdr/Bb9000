@@ -2,7 +2,7 @@ const err = (text) => {
     document.getElementById("err").style.color = "red";
     document.getElementById("err").innerHTML = text;
 };
-const sucess = (text) => {
+const success = (text) => {
     document.getElementById("err").style.color = "green";
     document.getElementById("err").innerHTML = text;
 };
