@@ -1,7 +1,13 @@
+const err = (text) => document.getElementById("err").innerHTML = text;
 const token = window.localStorage.getItem("token");
 if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
-        console.log(response)
+        if (response.status() !== 200) {
+            localStorage.removeItem("token");
+            err("your token has expired, please log in again");
+            return;
+        }
+        location.replace("play.html");
     });
 }
 
@@ -10,7 +16,13 @@ function register() {
     const password = document.getElementById("password").value;
     console.log(`Registering ${username} ${password}`)
     fetch(`/register/${username}/${password}`).then((response) => {
-        response.text().then(console.log);
+        if (response.status() !== 200) {
+            response.text().then(err);
+            return;
+        }
+        response.text().then((txt) => {
+            localStorage.setItem("token", txt);
+        })
     });
 }
 
