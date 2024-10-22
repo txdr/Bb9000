@@ -16,7 +16,7 @@ function register() {
     const password = document.getElementById("password").value;
     console.log(`Registering ${username} ${password}`)
     fetch(`/register/${username}/${password}`).then((response) => {
-        if (response.status() !== 200) {
+        if (response.status !== 200) {
             response.text().then(err);
             return;
         }
