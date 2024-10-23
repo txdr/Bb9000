@@ -28,7 +28,7 @@ function register() {
             return;
         }
         response.text().then((txt) => {
-            success("You have been logged in.");
+            success("You have been registered & logged in.");
             localStorage.setItem("token", txt);
         })
     });

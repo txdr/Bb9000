@@ -1,3 +1,11 @@
 body {
     background: white;
 }
+
+#home {
+    text-align: center;
+}
+
+#home p {
+    font-size: 50px;
+}
