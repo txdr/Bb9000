@@ -12,7 +12,7 @@ if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
         if (response.status() !== 200) {
             localStorage.removeItem("token");
-            err("your token has expired, please log in again");
+            err("Your access token has expired, please log in again");
             return;
         }
         location.replace("play.html");
@@ -22,7 +22,6 @@ if (token !== null) {
 function register() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    console.log(`Registering ${username} ${password}`)
     fetch(`/register/${username}/${password}`).then((response) => {
         if (response.status !== 200) {
             response.text().then(err);
@@ -36,6 +35,20 @@ function register() {
 }
 
 function login() {
-
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    fetch(`/login/${username}/${password}`).then((response) => {
+        if (response.status !== 200) {
+            response.text().then(err);
+            return;
+        }
+        response.text().then((txt) => {
+            success("You have been logged in... please wait.");
+            localStorage.setItem("token", txt);
+            setTimeout(() => {
+                location.replace("play.html");
+            }, 1000);
+        });
+    });
 }
 
