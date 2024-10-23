@@ -13,9 +13,15 @@ body {
 }
 
 #home button {
-    margin-top: 3%;
+    margin-top: 20px;
     margin-right: 10px;
+    width: 8%;
+    height: 5%;
+}
+
+#home input {
+    margin-bottom: 5px;
     width: 12%;
-    height: 3%;
+    height: 5%;
 
 }
