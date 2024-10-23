@@ -11,3 +11,11 @@ body {
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+#home button {
+    margin-top: 3%;
+    margin-right: 10px;
+    width: 12%;
+    height: 3%;
+
+}
