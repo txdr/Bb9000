@@ -7,7 +7,8 @@ const success = (text) => {
     document.getElementById("err").innerHTML = text;
 };
 
-const token = window.localStorage.getItem("token");
+const token = localStorage.getItem("token");
+alert(token)
 if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
         if (response.status() !== 200) {
