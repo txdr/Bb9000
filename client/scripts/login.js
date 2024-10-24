@@ -8,10 +8,9 @@ const success = (text) => {
 };
 
 const token = localStorage.getItem("token");
-alert(token)
 if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
-        if (response.status() !== 200) {
+        if (response.status !== 200) {
             localStorage.removeItem("token");
             err("Your access token has expired, please log in again");
             return;
