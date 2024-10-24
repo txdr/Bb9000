@@ -15,6 +15,7 @@ if (token !== null) {
             err("Your access token has expired, please log in again");
             return;
         }
+        document.body.innerHTML = "<p>Token valid, sending to game...</p>";
         location.replace("play.html");
     });
 }
