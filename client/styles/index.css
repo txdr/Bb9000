@@ -6,7 +6,7 @@ body {
     text-align: center;
 }
 
-#home p {
+#home p:first-of-type {
     font-size: 50px;
     margin-bottom: 0;
     padding-bottom: 0;
