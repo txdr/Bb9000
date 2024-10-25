@@ -7,6 +7,8 @@ const success = (text) => {
     document.getElementById("err").innerHTML = text;
 };
 
+// Check if there is already a token in storage,
+// and if so, make sure token is valid. Redirect to game if valid.
 const token = localStorage.getItem("token");
 if (token !== null) {
     fetch(`/verify/${token}`).then((response) => {
